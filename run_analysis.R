@@ -1,4 +1,7 @@
+library(stringr)
 options(digits=8)
+
+#Step 1: Merge the training and the test sets to create one data set.
 
 #Load the test data
 subject.test <- readLines("test/subject_test.txt")
@@ -27,3 +30,15 @@ rm(comb.test,comb.train)
 #Get labels and variable names
 feature.table <- read.table("features.txt")
 activity.table <- read.table("activity_labels.txt")
+
+
+
+#Step 2: Extract only the measurements on the mean and standard deviation 
+#for each measurement.
+mean.vars <- sapply(feature.table$V2,str_detect,"mean")
+std.vars <- sapply(feature.table$V2,str_detect,"std")
+select.vars <- which(mean.vars|std.vars)
+tidy.prelim <- comb.all[,c(1,2,2+select.vars)]
+
+
+
