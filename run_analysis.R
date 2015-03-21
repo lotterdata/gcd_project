@@ -57,7 +57,6 @@ DescriptName <- function(x){
 select.features <- feature.list$V2[select.vars]
 descript.names <- sapply(select.features,DescriptName)
 names(tidy.prelim) <- c("Subject","Activity",descript.names)
-#write.table(descript.names,"field_names.csv")
 rm(feature.list,select.vars,select.features,DescriptName,descript.names)
 
 #Step 5: From the data set in step 4, create a second, independent 
@@ -69,7 +68,5 @@ tidy.final <- group_by(tidy.prelim,Subject,Activity) %>%
               summarise_each(funs(mean)) %>%
               arrange(Subject,Activity)
            
-
-#write.table(tidy.prelim,"prelimtidy.txt",row.name=FALSE)
 write.table(tidy.final,"finaltidy.txt",row.name=FALSE)
 rm(tidy.prelim,tidy.final)
