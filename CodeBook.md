@@ -1,6 +1,6 @@
 #Tidy Data Code Book
 
-We refer the reader to the code book for the original data for background on the experiment. One point from that source that we note here is that the measurements have all been normalized and placed on a scale from -1 to 1.
+We refer the reader to the code book for the original data for background on the experiment. One point from that source that we note here is that the measurements have all been normalized and placed on a scale from -1 to 1. This explains why it is possible to have negative values for the standard deviations.
 
 As detailed in the original code book, there are 17 fundamental quantities being measusred:
 
