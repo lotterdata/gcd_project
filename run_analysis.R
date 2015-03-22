@@ -39,7 +39,7 @@ rm(activity.table,tidy.select,tidy.merge)
 
 #Function for calculating descriptive names
 DescriptName <- function(x){
-    domain <- ifelse(str_sub(x,start=1,end=1)=="t","Time","Frequency")
+    type <- str_sub(x,start=str_locate(x,"-")[1]+1,end=str_locate(x,"\\(")[1]-1)
     root <- str_sub(x,start=2,end=str_locate(x,"-")[1]-1) %>%
         str_replace_all("Acc","Accelerometer") %>%
         str_replace_all("Gyro","Gyroscope")
@@ -49,7 +49,7 @@ DescriptName <- function(x){
     if(direct=="Magnitude"){
         root <- str_sub(root,start=1,end=str_length(root)-3)
     }
-    type <- str_sub(x,start=str_locate(x,"-")[1]+1,end=str_locate(x,"\\(")[1]-1)
+    domain <- ifelse(str_sub(x,start=1,end=1)=="t","Time","Frequency")
     return(str_c(type,".",root,".",direct,".",domain))
 }
 
