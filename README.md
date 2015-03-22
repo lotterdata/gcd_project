@@ -25,6 +25,7 @@ Note that some stringr functions in this code make use of the pipeline operator 
 The code is divided into sections according to the five steps outlining the project requirements. A few of the more complex steps are divided into subsections. These sections and subsections can be identified with the descriptive comments in the code. Fuller explanations of each step are as follows.
 
 ###Step 1
+In this step we read the files for the test set subjects, activities (y) and measurements (x) and use cbind to place them in a single data frame, comb.test. We then do the same for the training set files to form comb.train. Finally we combine comb.test and comb.train into a single data frame, comb.all, using rbind.
 
 ###Step 2
 
